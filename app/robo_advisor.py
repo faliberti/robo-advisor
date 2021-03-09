@@ -1,5 +1,19 @@
 # this is the "app/robo_advisor.py" file
 
+import requests
+import json
+import os
+import csv
+from datetime import datetime
+from dotenv import load_dotenv
+
+load_dotenv()
+
+def to_usd(my_price):
+    return f"${my_price:,.2f}"
+
+API_KEY = os.environ.get("ALPHAVANTAGE_API_KEY", "abc123")
+
 print("-------------------------")
 print("SELECTED SYMBOL: XYZ")
 print("-------------------------")
