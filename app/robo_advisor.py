@@ -18,12 +18,12 @@ present = datetime.now()
 
 symbol = input("Please input the symbol of stock(s) (e.g. TSLA).")
 if symbol.isalpha() == False or len(symbol) > 5:
-    print("There was an error with what you put. Please try again with a stock symbol. (e.g. TSLA)")
+    print("There was an error with what you put. Please run the advisor again with a stock symbol. (e.g. TSLA)")
     exit()
 request_url = f"https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol={symbol}&apikey={API_KEY}"
 response = requests.get(request_url)
 if "Error Message" in response.text:
-    print("Sorry there was an error and we found no trading data for that symbol.")
+    print("Sorry there was an error and we found no trading data for that symbol. Please run the advisor again.")
     exit()
 parsed_response = json.loads(response.text)
 
